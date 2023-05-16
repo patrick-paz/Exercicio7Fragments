@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ButtonsFragment"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_preto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margem"
+            android:background="@android:color/background_dark"
+            android:text="@string/preto"/>
+        <Button
+            android:id="@+id/btn_azul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margem"
+            android:background="@android:color/background_dark"
+            android:text="@string/azul"/>
+        <Button
+            android:id="@+id/btn_verde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margem"
+            android:background="@android:color/background_dark"
+            android:text="@string/verde"/>
+        <Button
+            android:id="@+id/btn_vermelho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margem"
+            android:background="@android:color/background_dark"
+            android:text="@string/vermelho"/>
+        <Button
+            android:id="@+id/btn_amarelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margem"
+            android:background="@android:color/background_dark"
+            android:text="@string/amarelo"/>
+    </LinearLayout>
+
+</FrameLayout>
