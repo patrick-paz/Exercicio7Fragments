@@ -1,19 +1,22 @@
 package com.example.exercicio7fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ButtonsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ButtonsFragment extends Fragment {
+public class ButtonsFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +26,8 @@ public class ButtonsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private OnFragmentInteractionListener mListener;
 
     public ButtonsFragment() {
         // Required empty public constructor
@@ -58,7 +63,61 @@ public class ButtonsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buttons, container, false);
+        View view = inflater.inflate(R.layout.fragment_buttons, container, false);
+        
+        Button btnPreto = view.findViewById(R.id.btnPreto);
+        btnPreto.setOnClickListener(this);
+        Button btnAzul = view.findViewById(R.id.btnAzul);
+        btnAzul.setOnClickListener(this);
+        Button btnVerde = view.findViewById(R.id.btnVerde);
+        btnVerde.setOnClickListener(this);
+        Button btnVermelho = view.findViewById(R.id.btnVermelho);
+        btnVermelho.setOnClickListener(this);
+        Button btnAmarelo = view.findViewById(R.id.btnAmarelo);
+        btnAmarelo.setOnClickListener(this);
+        
+
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (mListener != null) {
+            int color = 0;
+            if (view.getId() == R.id.btnPreto) {
+                color = view.get;
+            } else if (view.getId() == R.id.btnAzul) {
+                color = "blue";
+            } else if (view.getId() == R.id.btnVerde) {
+                color = "green";
+            } else if (view.getId() == R.id.btnVermelho) {
+                color = "red";
+            } else if (view.getId() == R.id.btnAmarelo) {
+                color = "yellow";
+            }
+            mListener.onFragmentInteraction(color);
+        }
+    }
+
+    public interface OnFragmentInteractionListener{
+        void onFragmentInteraction(String color);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof OnFragmentInteractionListener){
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString() +
+                    " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
     }
 }
