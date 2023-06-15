@@ -69,9 +69,9 @@ public class ColorsFragment extends Fragment {
 
     }
 
-    public void definirColor(String color){
-        if(color != null){
-            bcgColor.setBackgroundColor();
+    public void definirColor(int color){
+        if(color != 0){
+            bcgColor.setBackgroundColor(color);
         }
     }
 }

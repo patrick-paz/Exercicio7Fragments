@@ -1,9 +1,12 @@
 package com.example.exercicio7fragments;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -83,25 +86,26 @@ public class ButtonsFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        Resources res = getResources();
         if (mListener != null) {
             int color = 0;
             if (view.getId() == R.id.btnPreto) {
-                color = view.get;
+                color = res.getColor(R.color.black, null);
             } else if (view.getId() == R.id.btnAzul) {
-                color = "blue";
+                color = res.getColor(R.color.blue, null);
             } else if (view.getId() == R.id.btnVerde) {
-                color = "green";
+                color = res.getColor(R.color.green, null);
             } else if (view.getId() == R.id.btnVermelho) {
-                color = "red";
+                color = res.getColor(R.color.red, null);
             } else if (view.getId() == R.id.btnAmarelo) {
-                color = "yellow";
+                color = res.getColor(R.color.yellow, null);
             }
             mListener.onFragmentInteraction(color);
         }
     }
 
     public interface OnFragmentInteractionListener{
-        void onFragmentInteraction(String color);
+        void onFragmentInteraction(int color);
     }
 
     @Override
